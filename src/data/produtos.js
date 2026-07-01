@@ -1,0 +1,201 @@
+const produtos = [
+{
+    id: 1,
+    nome: "Blazer Social Azul Slim Fit",
+    categoria: "Terno/Blazer",
+    preco: 250,
+    descricao: "Blazer social masculino com modelagem slim fit e acabamento sofisticado. Ideal para reuniões, eventos corporativos e ocasiões especiais.",
+    imagem: "/src/data/blazeazul.jpg"
+},
+
+{
+    id: 2,
+    nome: "Blazer Azul Marinho Premium",
+    categoria: "Terno/Blazer",
+    preco: 300,
+    descricao: "Blazer premium confeccionado com tecido de alta qualidade, oferecendo conforto, elegância e excelente caimento para eventos formais.",
+    imagem: "/src/data/blazerazulescuro.jpg"
+},
+
+{
+    id: 3,
+    nome: "Blazer Social Cinza Elegance",
+    categoria: "Terno/Blazer",
+    preco: 260,
+    descricao: "Blazer cinza de corte moderno, perfeito para compor looks sofisticados em ambientes profissionais e sociais.",
+    imagem: "/src/data/blazercinza.jpg"
+},
+
+{
+    id: 4,
+    nome: "Blazer Social Preto Executive",
+    categoria: "Terno/Blazer",
+    preco: 240,
+    descricao: "Blazer preto clássico com acabamento refinado, ideal para cerimônias, jantares e eventos de negócios.",
+    imagem: "/src/data/blazerpreto.jpg"
+},
+
+{
+    id: 5,
+    nome: "Calça Social Bege Slim",
+    categoria: "Calca",
+    preco: 250,
+    descricao: "Calça social masculina com modelagem slim, proporcionando elegância e conforto para o dia a dia ou eventos especiais.",
+    imagem: "/src/data/calcabegeescura.jpg"
+},
+
+{
+    id: 6,
+    nome: "Calça Casual Premium Bege",
+    categoria: "Calca",
+    preco: 210,
+    descricao: "Calça casual premium desenvolvida para homens que buscam conforto sem abrir mão do estilo.",
+    imagem: "/src/data/calcacampones.jpg"
+},
+
+{
+    id: 7,
+    nome: "Calça Social Marrom Claro",
+    categoria: "Calca",
+    preco: 180,
+    descricao: "Calça social marrom clara com design moderno e versátil, combinando perfeitamente com camisas e blazers.",
+    imagem: "/src/data/calcamarromclara.jpg"
+},
+
+{
+    id: 8,
+    nome: "Camisa Social Azul Clara Dry Fit",
+    categoria: "Camisa",
+    preco: 140,
+    descricao: "Camisa social confeccionada em tecido leve e respirável, garantindo conforto durante todo o dia.",
+    imagem: "/src/data/camisaazulclara.jpg"
+},
+
+{
+    id: 9,
+    nome: "Camisa Social Branca Slim Fit",
+    categoria: "Camisa",
+    preco: 180,
+    descricao: "Camisa branca clássica de modelagem slim fit, indispensável para composições elegantes e profissionais.",
+    imagem: "/src/data/camisabranca.jpg"
+},
+
+{
+    id: 10,
+    nome: "Camisa Social Preta Premium",
+    categoria: "Camisa",
+    preco: 190,
+    descricao: "Camisa social preta com acabamento premium, perfeita para eventos noturnos e ocasiões formais.",
+    imagem: "/src/data/camisapreta.jpg"
+},
+
+{
+    id: 11,
+    nome: "Conjunto Social Esporte Fino",
+    categoria: "Conjunto",
+    preco: 390,
+    descricao: "Conjunto completo estilo esporte fino, ideal para eventos sociais que exigem elegância e conforto.",
+    imagem: "/src/data/conjunto.jpg"
+},
+
+{
+    id: 12,
+    nome: "Conjunto Social Executivo",
+    categoria: "Conjunto",
+    preco: 240,
+    descricao: "Conjunto social masculino com visual moderno e sofisticado para diversas ocasiões formais.",
+    imagem: "/src/data/conjunto2.jpg"
+},
+
+{
+    id: 13,
+    nome: "Gravata Social Amarela",
+    categoria: "Gravata",
+    preco: 50,
+    descricao: "Gravata amarela elegante que adiciona personalidade e sofisticação ao visual masculino.",
+    imagem: "/src/data/gravataamarela.jpg"
+},
+
+{
+    id: 14,
+    nome: "Gravata Azul Clara Classic",
+    categoria: "Gravata",
+    preco: 70,
+    descricao: "Gravata azul clara com design clássico, ideal para eventos corporativos e cerimônias.",
+    imagem: "/src/data/gravataazulclara.jpg"
+},
+
+{
+    id: 15,
+    nome: "Gravata Azul Marinho Premium",
+    categoria: "Gravata",
+    preco: 80,
+    descricao: "Gravata azul marinho elegante, perfeita para complementar ternos e blazers sofisticados.",
+    imagem: "/src/data/gravataazulescura.jpg"
+},
+
+{
+    id: 16,
+    nome: "Gravata Social Estampada",
+    categoria: "Gravata",
+    preco: 90,
+    descricao: "Gravata estampada moderna para homens que desejam um toque diferenciado no visual.",
+    imagem: "/src/data/gravatacolorida.jpg"
+},
+
+{
+    id: 17,
+    nome: "Gravata Marrom Executive",
+    categoria: "Gravata",
+    preco: 50,
+    descricao: "Gravata marrom com acabamento refinado, ideal para composições discretas e elegantes.",
+    imagem: "/src/data/gravatamarrom.jpg"
+},
+
+{
+    id: 18,
+    nome: "Sapato Social Marrom em Couro",
+    categoria: "Sapato",
+    preco: 200,
+    descricao: "Sapato social confeccionado em couro legítimo, oferecendo conforto, resistência e sofisticação.",
+    imagem: "/src/data/sapatomarrom.jpg"
+},
+
+{
+    id: 19,
+    nome: "Sapato Social Marrom Café",
+    categoria: "Sapato",
+    preco: 190,
+    descricao: "Sapato social marrom escuro com design moderno e acabamento impecável para ocasiões especiais.",
+    imagem: "/src/data/sapatomarromescuro.jpg"
+},
+
+{
+    id: 20,
+    nome: "Sapato Social Marrom Clássico",
+    categoria: "Sapato",
+    preco: 140,
+    descricao: "Modelo clássico que combina conforto e elegância para o uso diário ou eventos formais.",
+    imagem: "/src/data/sapatomassom2.jpg"
+},
+
+{
+    id: 21,
+    nome: "Sapato Social Preto Premium",
+    categoria: "Sapato",
+    preco: 130,
+    descricao: "Sapato social preto de bico fino, ideal para compor visuais sofisticados e profissionais.",
+    imagem: "/src/data/sapatopreto.jpg"
+},
+
+{
+    id: 22,
+    nome: "Terno Azul Executive",
+    categoria: "Terno/Blazer",
+    preco: 280,
+    descricao: "Terno azul elegante com excelente caimento, perfeito para casamentos, formaturas e eventos corporativos.",
+    imagem: "/src/data/ternoazul.jpg"
+    }
+]
+
+export default produtos;
