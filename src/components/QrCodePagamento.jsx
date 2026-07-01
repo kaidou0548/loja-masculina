@@ -1,4 +1,4 @@
-import qrCode from "../data/qrcode.png";
+import qrCode from "/imagens/qrcode.png";
 
 function QrCodePagamento() {
 
