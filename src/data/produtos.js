@@ -5,7 +5,7 @@ const produtos = [
     categoria: "Terno/Blazer",
     preco: 250,
     descricao: "Blazer social masculino com modelagem slim fit e acabamento sofisticado. Ideal para reuniões, eventos corporativos e ocasiões especiais.",
-    imagem: "/src/data/blazeazul.jpg"
+    imagem: "/imagens/blazeazul.jpg"
 },
 
 {
@@ -14,7 +14,7 @@ const produtos = [
     categoria: "Terno/Blazer",
     preco: 300,
     descricao: "Blazer premium confeccionado com tecido de alta qualidade, oferecendo conforto, elegância e excelente caimento para eventos formais.",
-    imagem: "/src/data/blazerazulescuro.jpg"
+    imagem: "/imagens/blazerazulescuro.jpg"
 },
 
 {
@@ -23,7 +23,7 @@ const produtos = [
     categoria: "Terno/Blazer",
     preco: 260,
     descricao: "Blazer cinza de corte moderno, perfeito para compor looks sofisticados em ambientes profissionais e sociais.",
-    imagem: "/src/data/blazercinza.jpg"
+    imagem: "/imagens/blazercinza.jpg"
 },
 
 {
@@ -32,7 +32,7 @@ const produtos = [
     categoria: "Terno/Blazer",
     preco: 240,
     descricao: "Blazer preto clássico com acabamento refinado, ideal para cerimônias, jantares e eventos de negócios.",
-    imagem: "/src/data/blazerpreto.jpg"
+    imagem: "/imagens/blazerpreto.jpg"
 },
 
 {
@@ -41,7 +41,7 @@ const produtos = [
     categoria: "Calca",
     preco: 250,
     descricao: "Calça social masculina com modelagem slim, proporcionando elegância e conforto para o dia a dia ou eventos especiais.",
-    imagem: "/src/data/calcabegeescura.jpg"
+    imagem: "/imagens/calcabegeescura.jpg"
 },
 
 {
@@ -50,7 +50,7 @@ const produtos = [
     categoria: "Calca",
     preco: 210,
     descricao: "Calça casual premium desenvolvida para homens que buscam conforto sem abrir mão do estilo.",
-    imagem: "/src/data/calcacampones.jpg"
+    imagem: "/imagens/calcacampones.jpg"
 },
 
 {
@@ -59,7 +59,7 @@ const produtos = [
     categoria: "Calca",
     preco: 180,
     descricao: "Calça social marrom clara com design moderno e versátil, combinando perfeitamente com camisas e blazers.",
-    imagem: "/src/data/calcamarromclara.jpg"
+    imagem: "/imagens/calcamarromclara.jpg"
 },
 
 {
@@ -68,7 +68,7 @@ const produtos = [
     categoria: "Camisa",
     preco: 140,
     descricao: "Camisa social confeccionada em tecido leve e respirável, garantindo conforto durante todo o dia.",
-    imagem: "/src/data/camisaazulclara.jpg"
+    imagem: "/imagens/camisaazulclara.jpg"
 },
 
 {
@@ -77,7 +77,7 @@ const produtos = [
     categoria: "Camisa",
     preco: 180,
     descricao: "Camisa branca clássica de modelagem slim fit, indispensável para composições elegantes e profissionais.",
-    imagem: "/src/data/camisabranca.jpg"
+    imagem: "/imagens/camisabranca.jpg"
 },
 
 {
@@ -86,7 +86,7 @@ const produtos = [
     categoria: "Camisa",
     preco: 190,
     descricao: "Camisa social preta com acabamento premium, perfeita para eventos noturnos e ocasiões formais.",
-    imagem: "/src/data/camisapreta.jpg"
+    imagem: "/imagens/camisapreta.jpg"
 },
 
 {
@@ -95,7 +95,7 @@ const produtos = [
     categoria: "Conjunto",
     preco: 390,
     descricao: "Conjunto completo estilo esporte fino, ideal para eventos sociais que exigem elegância e conforto.",
-    imagem: "/src/data/conjunto.jpg"
+    imagem: "/imagens/conjunto.jpg"
 },
 
 {
@@ -104,7 +104,7 @@ const produtos = [
     categoria: "Conjunto",
     preco: 240,
     descricao: "Conjunto social masculino com visual moderno e sofisticado para diversas ocasiões formais.",
-    imagem: "/src/data/conjunto2.jpg"
+    imagem: "/imagens/conjunto2.jpg"
 },
 
 {
@@ -113,7 +113,7 @@ const produtos = [
     categoria: "Gravata",
     preco: 50,
     descricao: "Gravata amarela elegante que adiciona personalidade e sofisticação ao visual masculino.",
-    imagem: "/src/data/gravataamarela.jpg"
+    imagem: "/imagens/gravataamarela.jpg"
 },
 
 {
@@ -122,7 +122,7 @@ const produtos = [
     categoria: "Gravata",
     preco: 70,
     descricao: "Gravata azul clara com design clássico, ideal para eventos corporativos e cerimônias.",
-    imagem: "/src/data/gravataazulclara.jpg"
+    imagem: "/imagens/gravataazulclara.jpg"
 },
 
 {
@@ -131,7 +131,7 @@ const produtos = [
     categoria: "Gravata",
     preco: 80,
     descricao: "Gravata azul marinho elegante, perfeita para complementar ternos e blazers sofisticados.",
-    imagem: "/src/data/gravataazulescura.jpg"
+    imagem: "/imagens/gravataazulescura.jpg"
 },
 
 {
@@ -140,7 +140,7 @@ const produtos = [
     categoria: "Gravata",
     preco: 90,
     descricao: "Gravata estampada moderna para homens que desejam um toque diferenciado no visual.",
-    imagem: "/src/data/gravatacolorida.jpg"
+    imagem: "/imagens/gravatacolorida.jpg"
 },
 
 {
@@ -149,7 +149,7 @@ const produtos = [
     categoria: "Gravata",
     preco: 50,
     descricao: "Gravata marrom com acabamento refinado, ideal para composições discretas e elegantes.",
-    imagem: "/src/data/gravatamarrom.jpg"
+    imagem: "/imagens/gravatamarrom.jpg"
 },
 
 {
@@ -158,7 +158,7 @@ const produtos = [
     categoria: "Sapato",
     preco: 200,
     descricao: "Sapato social confeccionado em couro legítimo, oferecendo conforto, resistência e sofisticação.",
-    imagem: "/src/data/sapatomarrom.jpg"
+    imagem: "/imagens/sapatomarrom.jpg"
 },
 
 {
@@ -167,7 +167,7 @@ const produtos = [
     categoria: "Sapato",
     preco: 190,
     descricao: "Sapato social marrom escuro com design moderno e acabamento impecável para ocasiões especiais.",
-    imagem: "/src/data/sapatomarromescuro.jpg"
+    imagem: "/imagens/sapatomarromescuro.jpg"
 },
 
 {
@@ -176,7 +176,7 @@ const produtos = [
     categoria: "Sapato",
     preco: 140,
     descricao: "Modelo clássico que combina conforto e elegância para o uso diário ou eventos formais.",
-    imagem: "/src/data/sapatomassom2.jpg"
+    imagem: "/imagens/sapatomassom2.jpg"
 },
 
 {
@@ -185,7 +185,7 @@ const produtos = [
     categoria: "Sapato",
     preco: 130,
     descricao: "Sapato social preto de bico fino, ideal para compor visuais sofisticados e profissionais.",
-    imagem: "/src/data/sapatopreto.jpg"
+    imagem: "/imagens/sapatopreto.jpg"
 },
 
 {
@@ -194,7 +194,7 @@ const produtos = [
     categoria: "Terno/Blazer",
     preco: 280,
     descricao: "Terno azul elegante com excelente caimento, perfeito para casamentos, formaturas e eventos corporativos.",
-    imagem: "/src/data/ternoazul.jpg"
+    imagem: "/imagens/ternoazul.jpg"
     }
 ]
 
