@@ -1,15 +1,16 @@
-import qrCode from "/imagens/qrcode.png";
+import produtos from "../data/produtos";
+
 
 function QrCodePagamento() {
 
     return (
 
-        <div className="qr-container">
-
+        <div >
+<br/>
             <h2>Pagamento via PIX</h2>
 
             <img
-                src={qrCode}
+                src={produtos.find(e => e.id == 23).imagem}
                 alt="QR Code PIX"
                 className="qr-image"
             />
@@ -17,10 +18,9 @@ function QrCodePagamento() {
             <p>
                 Escaneie o QR Code para finalizar o pagamento.
             </p>
-
-            <button
-                onClick={confirmarPix}
-            >
+            <button 
+                className="btn-remover"  onClick={confirmarPix}
+            >                
                 Já Realizei o Pagamento
             </button>
 

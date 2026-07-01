@@ -118,11 +118,12 @@ function Carrinho() {
                                     Remover
                                 </button>
 
-                                <hr />
+                   
 
                             </div>
 
                         ))}
+                            <br/>
 
                         <h2>
                             Total:
