@@ -1,178 +1,173 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+function CartaoForm() {
 
-import CartaoForm from "../components/CartaoForm";
-import QrCodePagamento from "../components/QrCodePagamento";
-
-function Carrinho() {
-
-    const usuario = JSON.parse(
-        localStorage.getItem(
-            "usuarioLogado"
-        )
-    );
-
-    const [carrinho, setCarrinho] =
-        useState([]);
-
-    const [formaPagamento,
-        setFormaPagamento] =
+    const [nome, setNome] =
         useState("");
 
-    useEffect(() => {
+    const [numero, setNumero] =
+        useState("");
 
-        const lista =
-            JSON.parse(
-                localStorage.getItem(
-                    "carrinho"
-                )
-            ) || [];
+    const [validade, setValidade] =
+        useState("");
 
-        setCarrinho(lista);
+    const [cvv, setCvv] =
+        useState("");
 
-    }, []);
+    const [erro, setErro] =
+        useState("");
 
-    function removerProduto(id) {
+    function finalizarCompra() {
 
-        const novaLista =
-            carrinho.filter(
-                item => item.id !== id
+        if (nome.trim().length < 3) {
+
+            setErro(
+                "Informe o nome impresso no cartão."
             );
 
-        setCarrinho(novaLista);
+            return;
+        }
 
-        localStorage.setItem(
-            "carrinho",
-            JSON.stringify(novaLista)
+        if (!/^\d{16}$/.test(numero)) {
+
+            setErro(
+                "O número do cartão deve possuir 16 dígitos."
+            );
+
+            return;
+        }
+
+        if (validade === "") {
+
+            setErro(
+                "Selecione a validade do cartão."
+            );
+
+            return;
+        }
+
+        if (!/^\d{3}$/.test(cvv)) {
+
+            setErro(
+                "O CVV deve possuir 3 dígitos."
+            );
+
+            return;
+        }
+
+        setErro("");
+
+        alert(
+            "Compra realizada com sucesso!"
         );
-    }
 
-    const total = carrinho.reduce(
-
-        (soma, item) =>
-            soma + item.preco,
-
-        0
-    );
-
-    if (!usuario) {
-
-        return (
-            <>
-                <Navbar />
-
-                <div className="container">
-
-                    <h1>
-                        Faça login para acessar o carrinho
-                    </h1>
-
-                </div>
-
-                <Footer />
-            </>
+        localStorage.removeItem(
+            "carrinho"
         );
+
+        setNome("");
+        setNumero("");
+        setValidade("");
+        setCvv("");
+
+        window.location.reload();
     }
 
     return (
 
-        <>
-            <Navbar />
+        <div className="cartao-form">
 
-            <div className="container">
+            <h2>
+                Pagamento com Cartão
+            </h2>
 
-                <h1>
-                    Carrinho
-                </h1>
+            <input
+                type="text"
+                placeholder="Nome impresso no cartão"
+                value={nome}
+                onChange={(e) => {
 
-                {carrinho.length === 0 ? (
+                    setNome(
+                        e.target.value
+                    );
 
-                    <p>
-                        Carrinho vazio.
-                    </p>
+                    setErro("");
 
-                ) : (
+                }}
+            />
 
-                    <>
-                        {carrinho.map((item) => (
+            <input
+                type="text"
+                placeholder="Número do cartão"
+                value={numero}
+                onChange={(e) => {
 
-                            <div
-                                key={item.id}
-                            >
+                    setNumero(
 
-                                <h3>
-                                    {item.nome}
-                                </h3>
+                        e.target.value
+                            .replace(/\D/g, "")
+                            .slice(0, 16)
 
-                                <p>
-                                    R$ {item.preco.toFixed(2)}
-                                </p>
+                    );
 
-                                <button
-                                    className="btn-remover" onClick={() =>
-                                        removerProduto(item.id)
-                                    }
-                                >
-                                    Remover
-                                </button>
+                    setErro("");
 
-                   
+                }}
+            />
 
-                            </div>
+            <input
+                type="month"
+                value={validade}
+                onChange={(e) => {
 
-                        ))}
-                            <br/>
+                    setValidade(
+                        e.target.value
+                    );
 
-                        <h2>
-                            Total:
-                            R$ {total.toFixed(2)}
-                        </h2>
+                    setErro("");
 
-                        <h3>
-                            Escolha a forma de pagamento
-                        </h3>
+                }}
+            />
 
-                        <button
-                           className="btn-pagamento" onClick={() =>
-                                setFormaPagamento(
-                                    "cartao"
-                                )
-                            }
-                        >
-                            Cartão
-                        </button>
+            <input
+                type="password"
+                placeholder="CVV"
+                value={cvv}
+                onChange={(e) => {
 
-                        <button
-                            className="btn-pagamento" onClick={() =>
-                                setFormaPagamento(
-                                    "pix"
-                                )
-                            }
-                        >
-                            PIX
-                        </button>
+                    setCvv(
 
-                        {formaPagamento ===
-                            "cartao" && (
-                                <CartaoForm />
-                            )}
+                        e.target.value
+                            .replace(/\D/g, "")
+                            .slice(0, 3)
 
-                        {formaPagamento ===
-                            "pix" && (
-                                <QrCodePagamento />
-                            )}
+                    );
 
-                    </>
+                    setErro("");
 
-                )}
+                }}
+            />
 
-            </div>
+            {erro && (
 
-            <Footer />
-        </>
+                <p className="erro-login">
+
+                    {erro}
+
+                </p>
+
+            )}
+
+            <button
+                onClick={finalizarCompra}
+            >
+                Confirmar Pagamento
+            </button>
+
+        </div>
+
     );
+
 }
 
-export default Carrinho;
+export default CartaoForm;
