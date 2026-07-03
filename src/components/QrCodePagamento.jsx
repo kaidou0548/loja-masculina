@@ -1,4 +1,4 @@
-import produtos from "../data/produtos";
+import qrcode from "../../public/imagens/qrcode.png";
 
 
 function QrCodePagamento() {
@@ -10,7 +10,7 @@ function QrCodePagamento() {
             <h2>Pagamento via PIX</h2>
 
             <img
-                src={produtos.find(e => e.id == 23).imagem}
+                src={qrcode}
                 alt="QR Code PIX"
                 className="qr-image"
             />

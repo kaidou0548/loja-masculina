@@ -195,15 +195,6 @@ const produtos = [
     preco: 280,
     descricao: "Terno azul elegante com excelente caimento, perfeito para casamentos, formaturas e eventos corporativos.",
     imagem: "/imagens/ternoazul.jpg"
-    },
-
-    {
-    id: 23,
-    nome: "Qr Code",
-    categoria: "Qr Code",
-    preco: 280,
-    descricao: "Terno azul elegante com excelente caimento, perfeito para casamentos, formaturas e eventos corporativos.",
-    imagem: "/imagens/qrcode.png"
     }
 ]
 

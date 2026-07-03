@@ -5,7 +5,66 @@ import Footer from "../components/Footer";
 
 function Contato() {
 
-    const [aba, setAba] = useState("contato");
+    const [aba, setAba] =
+        useState("contato");
+
+    const [nome, setNome] =
+        useState("");
+
+    const [email, setEmail] =
+        useState("");
+
+    const [tipo, setTipo] =
+        useState("Reclamação");
+
+    const [mensagem, setMensagem] =
+        useState("");
+
+    function enviarFormulario(e) {
+
+        e.preventDefault();
+
+        if (nome.trim().length < 3) {
+
+            alert(
+                "Informe um nome válido."
+            );
+
+            return;
+        }
+
+        if (
+            aba === "contato" &&
+            !email.includes("@")
+        ) {
+
+            alert(
+                "Informe um e-mail válido."
+            );
+
+            return;
+        }
+
+        if (
+            mensagem.trim().length < 10
+        ) {
+
+            alert(
+                "A mensagem deve possuir pelo menos 10 caracteres."
+            );
+
+            return;
+        }
+
+        alert(
+            "Mensagem enviada com sucesso!"
+        );
+
+        setNome("");
+        setEmail("");
+        setMensagem("");
+        setTipo("Reclamação");
+    }
 
     return (
 
@@ -14,7 +73,9 @@ function Contato() {
 
             <div className="container">
 
-                <h1>Fale Conosco</h1>
+                <h1>
+                    Fale Conosco
+                </h1>
 
                 <div className="abas">
 
@@ -38,36 +99,7 @@ function Contato() {
 
                 {aba === "contato" && (
 
-                  <form
-                    className="formulario"
-                    onSubmit={enviarFormulario}
-                >
-
-                        <input
-                            type="text"
-                            placeholder="Nome"
-                        />
-
-                        <input
-                            type="email"
-                            placeholder="Email"
-                        />
-
-                        <textarea
-                            placeholder="Mensagem"
-                        />
-
-                      <button type="submit">
-                        Enviar
-                    </button>
-
-                    </form>
-
-                )}
-
-                {aba === "ouvidoria" && (
-
-                   <form
+                    <form
                         className="formulario"
                         onSubmit={enviarFormulario}
                     >
@@ -75,9 +107,81 @@ function Contato() {
                         <input
                             type="text"
                             placeholder="Nome"
+                            value={nome}
+                            onChange={(e) =>
+                                setNome(
+                                    e.target.value
+                                )
+                            }
+                            required
+                            minLength={3}
+                            maxLength={60}
                         />
 
-                        <select>
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            value={email}
+                            onChange={(e) =>
+                                setEmail(
+                                    e.target.value
+                                )
+                            }
+                            required
+                        />
+
+                        <textarea
+                            placeholder="Mensagem"
+                            value={mensagem}
+                            onChange={(e) =>
+                                setMensagem(
+                                    e.target.value
+                                )
+                            }
+                            required
+                            minLength={10}
+                            maxLength={300}
+                        />
+
+                        <button
+                            type="submit"
+                        >
+                            Enviar
+                        </button>
+
+                    </form>
+
+                )}
+
+                {aba === "ouvidoria" && (
+
+                    <form
+                        className="formulario"
+                        onSubmit={enviarFormulario}
+                    >
+
+                        <input
+                            type="text"
+                            placeholder="Nome"
+                            value={nome}
+                            onChange={(e) =>
+                                setNome(
+                                    e.target.value
+                                )
+                            }
+                            required
+                            minLength={3}
+                            maxLength={60}
+                        />
+
+                        <select
+                            value={tipo}
+                            onChange={(e) =>
+                                setTipo(
+                                    e.target.value
+                                )
+                            }
+                        >
 
                             <option>
                                 Reclamação
@@ -95,9 +199,20 @@ function Contato() {
 
                         <textarea
                             placeholder="Mensagem"
+                            value={mensagem}
+                            onChange={(e) =>
+                                setMensagem(
+                                    e.target.value
+                                )
+                            }
+                            required
+                            minLength={10}
+                            maxLength={300}
                         />
 
-                       <button type="submit">
+                        <button
+                            type="submit"
+                        >
                             Enviar
                         </button>
 
@@ -108,17 +223,11 @@ function Contato() {
             </div>
 
             <Footer />
+
         </>
+
     );
-}
 
-function enviarFormulario(e){
-
-    e.preventDefault();
-
-    alert(
-        "Mensagem enviada com sucesso!"
-    );
 }
 
 export default Contato;
