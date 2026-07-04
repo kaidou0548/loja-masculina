@@ -1,38 +1,95 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+
 
 function Navbar() {
+    
+    const navigate = useNavigate();
+    const [usuario, setUsuario] =
+    useState(null);
 
-    const usuario =
+    const [quantidadeCarrinho,
+        setQuantidadeCarrinho] =
+        useState(0);
+    
+    useEffect(() => {
+
+    atualizarNavbar();
+
+    window.addEventListener(
+        "navbarAtualizada",
+        atualizarNavbar
+    );
+
+    return () => {
+
+        window.removeEventListener(
+            "navbarAtualizada",
+            atualizarNavbar
+        );
+
+    };
+
+}, []);
+
+function atualizarNavbar() {
+
+    const usuarioSalvo =
         JSON.parse(
             localStorage.getItem(
                 "usuarioLogado"
             )
         );
 
-    const quantidadeCarrinho =
-
+    const carrinho =
         JSON.parse(
             localStorage.getItem(
                 "carrinho"
             )
-        )?.length || 0;
+        ) || [];
 
-    function sair() {
+    setUsuario(usuarioSalvo);
 
-        localStorage.removeItem(
-            "usuarioLogado"
-        );
+    setQuantidadeCarrinho(
+        carrinho.length
+    );
 
-        localStorage.removeItem(
-            "carrinho"
-        );
+}
+    
+ function sair() {
 
-        localStorage.removeItem(
-            "favoritos"
-        );
+    localStorage.removeItem(
+        "usuarioLogado"
+    );
 
-        window.location.reload();
-    }
+    localStorage.removeItem(
+        "carrinho"
+    );
+
+    localStorage.removeItem(
+        "favoritos"
+    );
+
+    localStorage.removeItem(
+        "avaliacoes"
+    );
+
+   window.dispatchEvent(
+        new Event("navbarAtualizada")
+    );
+
+    window.dispatchEvent(
+        new Event("favoritosAtualizados")
+    );
+
+    window.dispatchEvent(
+        new Event("carrinhoAtualizado")
+    );
+
+navigate("/");
+
+
+}
 
     return (
 

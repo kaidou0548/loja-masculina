@@ -80,8 +80,13 @@ function Login() {
                 "usuarioLogado",
 
                 JSON.stringify(usuario)
+                
 
             );
+            
+            window.dispatchEvent(
+    new Event("navbarAtualizada")
+);
 
             setEmail("");
             setSenha("");

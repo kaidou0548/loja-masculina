@@ -2,70 +2,72 @@ import { useState } from "react";
 
 function CartaoForm() {
 
-    const [nome, setNome] =
-        useState("");
-
-    const [numero, setNumero] =
-        useState("");
-
-    const [validade, setValidade] =
-        useState("");
-
-    const [cvv, setCvv] =
-        useState("");
+    const [nome, setNome] = useState("");
+    const [numero, setNumero] = useState("");
+    const [validade, setValidade] = useState("");
+    const [cvv, setCvv] = useState("");
+    const [erro, setErro] = useState("");
 
     function finalizarCompra() {
 
         if (nome.trim().length < 3) {
 
-            alert(
-                "Informe o nome impresso no cartão."
+            setErro(
+                "Informe um nome válido."
             );
 
             return;
         }
 
-        if (!/^\d{16}$/.test(numero)) {
+        if (numero.length !== 16) {
 
-            alert(
-                "O número do cartão deve possuir 16 dígitos."
+            setErro(
+                "O cartão deve possuir 16 dígitos."
             );
 
             return;
         }
 
-        if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(validade)) {
+        if (validade === "") {
 
-            alert(
-                "Informe a validade no formato MM/AA."
+            setErro(
+                "Selecione a validade do cartão."
             );
 
             return;
         }
 
-        if (!/^\d{3}$/.test(cvv)) {
+        if (cvv.length !== 3) {
 
-            alert(
+            setErro(
                 "O CVV deve possuir 3 dígitos."
             );
 
             return;
         }
 
-        alert(
-            "Pagamento realizado com sucesso!"
-        );
+        setErro("");
 
         localStorage.removeItem(
             "carrinho"
+        );
+
+        window.dispatchEvent(
+            new Event("carrinhoAtualizado")
+        );
+
+        window.dispatchEvent(
+            new Event("navbarAtualizada")
+        );
+
+        alert(
+            "Compra realizada com sucesso!"
         );
 
         setNome("");
         setNumero("");
         setValidade("");
         setCvv("");
-
-        window.location.reload();
     }
 
     return (
@@ -80,82 +82,74 @@ function CartaoForm() {
                 type="text"
                 placeholder="Nome impresso no cartão"
                 value={nome}
-                onChange={(e) =>
-                    setNome(
-                        e.target.value
-                    )
-                }
-                required
-                minLength={3}
-                maxLength={60}
+                onChange={(e) => {
+
+                    setNome(e.target.value);
+                    setErro("");
+
+                }}
             />
 
             <input
                 type="text"
                 placeholder="Número do cartão"
                 value={numero}
-                onChange={(e) =>
+                onChange={(e) => {
 
                     setNumero(
-
                         e.target.value
                             .replace(/\D/g, "")
                             .slice(0, 16)
+                    );
 
-                    )
+                    setErro("");
 
-                }
-                required
+                }}
             />
 
             <input
-                type="text"
-                placeholder="Validade (MM/AA)"
+                type="month"
                 value={validade}
                 onChange={(e) => {
 
-                    let valor =
+                    setValidade(
                         e.target.value
-                            .replace(/\D/g, "")
-                            .slice(0, 4);
+                    );
 
-                    if (valor.length > 2) {
-
-                        valor =
-                            valor.slice(0, 2) +
-                            "/" +
-                            valor.slice(2);
-
-                    }
-
-                    setValidade(valor);
+                    setErro("");
 
                 }}
-                required
             />
 
             <input
                 type="password"
                 placeholder="CVV"
                 value={cvv}
-                onChange={(e) =>
+                onChange={(e) => {
 
                     setCvv(
-
                         e.target.value
                             .replace(/\D/g, "")
                             .slice(0, 3)
+                    );
 
-                    )
+                    setErro("");
 
-                }
-                required
+                }}
             />
 
+            {erro && (
+
+                <p className="erro-login">
+
+                    {erro}
+
+                </p>
+
+            )}
+
             <button
-                onClick={
-                    finalizarCompra
-                }
+                onClick={finalizarCompra}
             >
                 Confirmar Pagamento
             </button>
@@ -163,7 +157,6 @@ function CartaoForm() {
         </div>
 
     );
-
 }
 
 export default CartaoForm;

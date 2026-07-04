@@ -7,16 +7,36 @@ function FavoritosSidebar() {
 
     useEffect(() => {
 
-        const lista =
-            JSON.parse(
-                localStorage.getItem(
-                    "favoritos"
-                )
-            ) || [];
+    carregarFavoritos();
 
-        setFavoritos(lista);
+    window.addEventListener(
+        "favoritosAtualizados",
+        carregarFavoritos
+    );
 
-    }, []);
+    return () => {
+
+        window.removeEventListener(
+            "favoritosAtualizados",
+            carregarFavoritos
+        );
+
+    };
+
+}, []);
+
+function carregarFavoritos() {
+
+    const lista =
+        JSON.parse(
+            localStorage.getItem(
+                "favoritos"
+            )
+        ) || [];
+
+    setFavoritos(lista);
+
+}
 
     return (
 
@@ -65,12 +85,13 @@ function FavoritosSidebar() {
             favoritos.filter(
                 item => item.id !== id
             );
-    
-        setFavoritos(novaLista);
-    
+        
         localStorage.setItem(
             "favoritos",
             JSON.stringify(novaLista)
+        );
+            window.dispatchEvent(
+            new Event("favoritosAtualizados")
         );
     }
 }

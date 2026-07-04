@@ -32,15 +32,21 @@ function QrCodePagamento() {
 
 function confirmarPix(){
 
-    localStorage.removeItem(
+        localStorage.removeItem(
         "carrinho"
+    );
+
+    window.dispatchEvent(
+        new Event("carrinhoAtualizado")
+    );
+
+    window.dispatchEvent(
+        new Event("navbarAtualizada")
     );
 
     alert(
         "Pagamento PIX confirmado!"
     );
-
-    window.location.reload();
 }
 
 

@@ -34,13 +34,19 @@ function ProductCard({ produto }) {
         carrinho.push(produto);
 
         localStorage.setItem(
-            "carrinho",
-            JSON.stringify(carrinho)
+        "carrinho",
+        JSON.stringify(carrinho)
         );
 
-        alert(
-            "Produto adicionado ao carrinho!"
+        window.dispatchEvent(
+        new Event("navbarAtualizada")
         );
+
+        window.dispatchEvent(
+        new Event("carrinhoAtualizado")
+        );
+
+        alert("Produto adicionado ao carrinho!");
     }
 
     function adicionarFavorito() {
@@ -82,6 +88,10 @@ function ProductCard({ produto }) {
         localStorage.setItem(
             "favoritos",
             JSON.stringify(favoritos)
+        );
+
+        window.dispatchEvent(
+            new Event("favoritosAtualizados")
         );
 
         alert(

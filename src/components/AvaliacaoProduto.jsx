@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import avaliacoes from "../data/avaliacoes";
@@ -51,6 +51,39 @@ function AvaliacaoProduto({ produtoId }) {
         )
         : false;
 
+    useEffect(() => {
+
+        carregarAvaliacoes();
+
+        window.addEventListener(
+            "avaliacoesAtualizadas",
+            carregarAvaliacoes
+        );
+
+        return () => {
+
+            window.removeEventListener(
+                "avaliacoesAtualizadas",
+                carregarAvaliacoes
+            );
+
+        };
+
+    }, []);
+
+    function carregarAvaliacoes() {
+
+        const lista =
+            JSON.parse(
+                localStorage.getItem(
+                    "avaliacoes"
+                )
+            ) || [];
+
+        setAvaliacoesLocais(lista);
+
+    }
+    
     function enviarAvaliacao() {
 
         if (!usuario) {
@@ -102,6 +135,9 @@ function AvaliacaoProduto({ produtoId }) {
             JSON.stringify(
                 novasAvaliacoes
             )
+        );
+        window.dispatchEvent(
+            new Event("avaliacoesAtualizadas")
         );
 
         setComentario("");
